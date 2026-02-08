@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations Anuradha & Rohit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        /* --- ANIMATIONS (Same as before) --- */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes rotateRings {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.8; }
+        }
+
+        @keyframes floatUpPetal {
+            0% { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(360deg) scale(1); opacity: 0; }
+        }
+        /* --- END ANIMATIONS --- */
+
+        body {
+            margin: 0;
+            padding: 0;
+            /* Soft Gradient Background */
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #fecfef, #a18cd1);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background Flowers */
+        body::before, body::after {
+            content: '🌸'; 
+            position: absolute;
+            font-size: 25rem; 
+            opacity: 0.06; 
+            z-index: 0;
+            pointer-events: none; 
+            filter: blur(3px);
+        }
+
+        body::before { top: -150px; left: -150px; transform: rotate(-20deg); }
+        body::after { bottom: -150px; right: -150px; transform: rotate(20deg); content: '🌺'; }
+        
+        /* Petal Confetti */
+        .confetti-petal {
+            position: absolute;
+            width: 15px; height: 15px; bottom: -30px; z-index: 1; opacity: 0;
+            border-radius: 50% 0 50% 50%;
+            animation: fadeIn 0.5s forwards, floatUpPetal 7s linear forwards;
+        }
+
+        /* --- NEW PREMIUM CARD DESIGN --- */
+        .card {
+            /* Brighter, slightly transparent white base */
+            background-color: rgba(255, 255, 255, 0.95);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 30px; /* More rounded corners */
+            
+            /* Deep shadow for 3D effect + Inner Pink/Gold Glow */
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.2), /* Outer shadow */
+                inset 0 0 30px rgba(231, 60, 126, 0.15); /* Inner glow */
+
+            padding: 45px 35px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            
+            /* The magic trick for Gradient Border */
+            border: 4px solid transparent; /* Transparent placeholder */
+            background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), linear-gradient(135deg, #ff9a9e, #e73c7e, #ffd700, #a18cd1);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            
+            backdrop-filter: blur(20px); /* Stronger glass effect */
+        }
+        /* -------------------------------- */
+
+        h1 {
+            color: #e73c7e;
+            font-size: 2.2rem;
+            margin: 0;
+            font-weight: 700;
+            /* Adding a subtle text shadow to make it pop */
+            text-shadow: 1px 1px 2px rgba(231, 60, 126, 0.2);
+        }
+
+        h2 {
+            color: #555;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            margin: 5px 0 25px 0;
+            font-weight: 400;
+        }
+
+        .photo-container {
+            margin: 20px auto;
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            overflow: hidden;
+            border-radius: 15px; 
+            border: 4px solid #fff;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Stronger photo shadow */
+        }
+
+        .wedding-photo {
+            width: 100%;
+            height: auto; 
+            display: block;
+        }
+
+        .name-badge {
+            background: linear-gradient(135deg, #e73c7e 0%, #ff9a9e 100%);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: inline-block;
+            box-shadow: 0 8px 20px rgba(231, 60, 126, 0.4);
+            margin-top: -25px;
+            position: relative;
+            z-index: 12;
+            margin-bottom: 30px;
+            border: 2px solid white; /* Added a clean white border to the badge */
+        }
+
+        .message-body {
+            color: #4b5563;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .signature-box {
+            border-top: 2px dashed #ffd1dc;
+            padding-top: 25px;
+            margin-top: 20px;
+        }
+
+        .wishes {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .sender {
+            color: #e73c7e;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .rings-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: rotateRings 12s linear infinite;
+            filter: drop-shadow(0 0 5px gold);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Congratulations!</h1>
+        <h2>On Your Wedding</h2>
+
+        <div class="photo-container">
+            <img src="couple.jpg" alt="Anuradha & Rohit" class="wedding-photo">
+        </div>
+
+        <div class="name-badge">
+            Anuradha & Rohit
+        </div>
+
+        <div class="message-body">
+            Dear Di and Jiju,<br><br>
+            Wishing you a beautiful journey filled with love, joy, and endless happiness. May your bond grow stronger every day. I'm so happy you two found each other. Here's to many amazing years of marriage together!
+        </div>
+
+        <div class="signature-box">
+            <div class="rings-icon">💍 💍</div>
+            <div class="wishes">With warm wishes on your special day!</div>
+            <div class="sender">- Sumit</div>
+        </div>
+    </div>
+
+    <script>
+        // Flower petal colors
+        const colors = ['#ffc3a0', '#ffafbd', '#e0c3fc', '#8ec5fc', '#fad0c4', '#ffd700'];
+        
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('confetti-petal');
+            
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            const size = Math.random() * 12 + 8;
+            petal.style.width = size + 'px';
+            petal.style.height = size + 'px';
+
+            const duration = Math.random() * 4 + 5; 
+            petal.style.animationDuration = `0.5s, ${duration}s`;
+            
+            document.body.appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createPetal, 300);
+    </script>
+</body>
+</html>
